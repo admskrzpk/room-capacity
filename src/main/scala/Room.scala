@@ -1,15 +1,26 @@
-case class Room(roomName: String, capacity: Int, var occupied: Int) {
+case class Room(roomName: String, capacity: Int) {
+  var occupied = 0
 
-  def enter(pplEntering: Int) = {
-    if (pplEntering + occupied > capacity) println("not enough space")
-    else pplEntering + occupied
+  def enter(pplEntering: Int): Boolean = {
+    if (pplEntering + occupied > capacity) return false
+    else
+      occupied += pplEntering
+    true
   }
 
-  def leave(pplLeaving: Int) = occupied - pplLeaving
+  def leave(pplLeaving: Int): Boolean = {
+    if (occupied - pplLeaving < 0) false
+    else {
+      occupied -= pplLeaving
+      true
+    }
+  }
 
-  def report(pplInside: Int) = println(s"there is $pplInside people inside a room $roomName")
+  def report(pplInside: Int): Unit = println(s"In $roomName there is $occupied people")
+
 }
 
+//klasa people
+
 object Room extends App {
-  val firstRoom = Room("First Room", 20, 0)
 }
