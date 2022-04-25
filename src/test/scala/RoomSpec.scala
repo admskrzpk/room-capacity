@@ -15,8 +15,17 @@ class RoomSpec extends AnyFlatSpec with should.Matchers {
   val secondRoom = Room("Second Room", 15)
   val pplEntering = 10
   val actual = secondRoom.enter(pplEntering)
-    val expeced = true
-    actual shouldBe expeced
+    val expected = true
+    actual shouldBe expected
   }
+
+  it should "return number of people leaving a room" in {
+    val thirdRoom = Room("Third Room", 20)
+    val pplLeaving = 10
+    val actual = thirdRoom.enter(pplLeaving)
+    val expected = true
+    actual shouldBe expected
+  }
+
 
 }

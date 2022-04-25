@@ -20,7 +20,7 @@ case class Room(roomName: String, capacity: Int) {
 
 }
 
-//klasa people
+//klasa Person dodac
 
 object Room extends App {
 }
